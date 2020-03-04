@@ -51,8 +51,7 @@ var testData = []testDataSample{
 	{16, 14, "Win for Luciano"},
 	{14, 16, "Win for Fernando"},
 	{14, 16, "Win for Fernando"},
-
-	}
+}
 
 func runSuiteOnGame(t *testing.T, factory func(player1Name string, player2Name string) TennisGame) {
 	for _, sample := range testData {
