@@ -2,11 +2,7 @@
 
 ## Installation
 
-Assuming you have a proper [workspace](http://golang.org/doc/code.html#Workspaces) set up, run
-```
-go get github.com/[user]/Tennis-Refactoring-Kata/go/tenniskata
-```
-on the command line, with ```[user]``` replaced with a valid username.
+Set up a proper [workspace](http://golang.org/doc/code.html#Workspaces) 
 
 ## Running Tests
 
