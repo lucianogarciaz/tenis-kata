@@ -2,7 +2,7 @@ package results
 
 import (
 	"math"
-	. "refactoring-kata-tenis/tenniskata/player"
+	. "refactoring-kata-tenis/tenniskata/Domain/player"
 )
 
 type advantageResult struct {

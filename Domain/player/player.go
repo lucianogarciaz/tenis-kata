@@ -1,9 +1,10 @@
 package player
 
 type Player struct {
-	name string
+	name  string
 	score int
 }
+
 // Named constructor
 func NewPlayer(name string, score int) *Player {
 	return &Player{name: name, score: score}
@@ -17,4 +18,3 @@ func (player *Player) GetPlayerName() string {
 func (player *Player) GetPoints() int {
 	return player.score
 }
-

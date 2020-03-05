@@ -1,6 +1,6 @@
 package results
 
-import . "refactoring-kata-tenis/tenniskata/player"
+import . "refactoring-kata-tenis/tenniskata/Domain/player"
 
 type drawResult struct {
 	points int
