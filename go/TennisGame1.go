@@ -59,14 +59,7 @@ func (g *tennisGame1) stringNormalPoints() string {
 }
 
 func stringPoints(score int) string {
-	switch score {
-	case 0:
-		return "Love"
-	case 1:
-		return "Fifteen"
-	case 2:
-		return "Thirty"
-	default:
-		return "Forty"
-	}
+	return points[score]
 }
+
+var points = []string{"Love", "Fifteen", "Thirty", "Forty"}
