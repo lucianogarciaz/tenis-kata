@@ -15,35 +15,39 @@ func TennisGame1(player1Name string, player2Name string) TennisGame {
 	return game
 }
 
-func (game *tennisGame1) WonPoint(playerName string) {
+func (g *tennisGame1) WonPoint(playerName string) {
 	if playerName == "player1" {
-		game.m_score1 += 1
+		g.m_score1 += 1
 	} else {
-		game.m_score2 += 1
+		g.m_score2 += 1
 	}
 }
 
-func (game *tennisGame1) GetScore() string {
-	if game.m_score1 == game.m_score2 {
-		switch game.m_score1 {
-		case 0:
-			return "Love-All"
-		case 1:
-			return "Fifteen-All"
-		case 2:
-			return "Thirty-All"
-		default:
-			return "Deuce"
-		}
+func (g *tennisGame1) GetScore() string {
+	if g.m_score1 == g.m_score2 {
+		return g.stringEqualPoints()
 	}
-	if game.m_score1 >= 4 || game.m_score2 >= 4 {
-		return stringDeucePoints(game.m_score1, game.m_score2)
+	if g.m_score1 >= 4 || g.m_score2 >= 4 {
+		return g.stringDeucePoints()
 	}
-	return stringPoints(game.m_score1) + "-" + stringPoints(game.m_score2)
+	return g.stringNormalPoints()
 }
 
-func stringDeucePoints(score1, score2 int) string {
-	minusResult := score1 - score2
+func (g *tennisGame1) stringEqualPoints() string {
+	switch g.m_score1 {
+	case 0:
+		return "Love-All"
+	case 1:
+		return "Fifteen-All"
+	case 2:
+		return "Thirty-All"
+	default:
+		return "Deuce"
+	}
+}
+
+func (g *tennisGame1) stringDeucePoints() string {
+	minusResult := g.m_score1 - g.m_score2
 	if minusResult == 1 {
 		return "Advantage player1"
 	}
@@ -54,6 +58,10 @@ func stringDeucePoints(score1, score2 int) string {
 		return "Win for player1"
 	}
 	return "Win for player2"
+}
+
+func (g *tennisGame1) stringNormalPoints() string {
+	return stringPoints(g.m_score1) + "-" + stringPoints(g.m_score2)
 }
 
 func stringPoints(score int) string {
