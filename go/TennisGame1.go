@@ -34,27 +34,21 @@ func (g *tennisGame1) GetScore() string {
 }
 
 func (g *tennisGame1) stringEqualPoints() string {
-	switch g.m_score1 {
-	case 0:
-		return "Love-All"
-	case 1:
-		return "Fifteen-All"
-	case 2:
-		return "Thirty-All"
-	default:
-		return "Deuce"
+	if g.m_score1 < 3 {
+		return stringPoints(g.m_score1) + "-All"
 	}
+	return "Deuce"
 }
 
 func (g *tennisGame1) stringDeucePoints() string {
-	minusResult := g.m_score1 - g.m_score2
-	if minusResult == 1 {
+	diffPoints := g.m_score1 - g.m_score2
+	if diffPoints == 1 {
 		return "Advantage player1"
 	}
-	if minusResult == -1 {
+	if diffPoints == -1 {
 		return "Advantage player2"
 	}
-	if minusResult >= 2 {
+	if diffPoints >= 2 {
 		return "Win for player1"
 	}
 	return "Win for player2"
@@ -72,8 +66,7 @@ func stringPoints(score int) string {
 		return "Fifteen"
 	case 2:
 		return "Thirty"
-	case 3:
+	default:
 		return "Forty"
 	}
-	return "unknown"
 }
