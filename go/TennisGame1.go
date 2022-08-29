@@ -37,17 +37,23 @@ func (game *tennisGame1) GetScore() string {
 		}
 	}
 	if game.m_score1 >= 4 || game.m_score2 >= 4 {
-		minusResult := game.m_score1 - game.m_score2
-		if minusResult == 1 {
-			return "Advantage player1"
-		} else if minusResult == -1 {
-			return "Advantage player2"
-		} else if minusResult >= 2 {
-			return "Win for player1"
-		}
-		return "Win for player2"
+		return stringDeucePoints(game.m_score1, game.m_score2)
 	}
 	return stringPoints(game.m_score1) + "-" + stringPoints(game.m_score2)
+}
+
+func stringDeucePoints(score1, score2 int) string {
+	minusResult := score1 - score2
+	if minusResult == 1 {
+		return "Advantage player1"
+	}
+	if minusResult == -1 {
+		return "Advantage player2"
+	}
+	if minusResult >= 2 {
+		return "Win for player1"
+	}
+	return "Win for player2"
 }
 
 func stringPoints(score int) string {
